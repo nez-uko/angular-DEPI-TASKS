@@ -1,0 +1,23 @@
+<app-user-form (userData)="handelEvent($event)"></app-user-form>
+
+@if(users.length>0){
+    <table border="1" class="my-5 mx-5" cellspacing="10" cellpadding="10">
+        <thead>
+            <tr>
+                <td>name</td>
+            <td>email</td>
+            <td>action</td>
+            </tr>
+
+        </thead>
+        <tbody>
+             @for (user of users; track $index) {
+            <tr><td>{{user.username}}</td>
+            <td>{{user.useremail}}</td>
+            <td>
+             <button class="btn btn-danger" (click)="removeUser($index)">Remove User</button>
+            </td></tr>
+            }
+        </tbody>
+    </table>
+}
