@@ -1,0 +1,43 @@
+<div class="container my-5">
+  <div class="row" style="flex-wrap: wrap; justify-content: space-between;">
+      @for (imge of product.images; track $index) {
+        <div class="col-2">
+        <div style="padding:5px; border-radius: 10px; width:50px; height:50px">
+          <img [src]="imge" alt="" style="border-radius: 20px;">
+        </div>
+        </div>
+    }
+    <div class="col-3">
+        <img [src]="product.thumbnail" alt="" class="rounded" style="border:1px solid #000; padding:5px;">
+      </div>
+    <div class="col-5">
+      <p>{{product.category}}</p>
+      <p class="h1">{{product.title}}</p>
+      <div>
+        <p>
+          <i class="fas fa-star" aria-hidden="true"></i>
+          <span>{{product.rating}}</span>
+        </p>
+        <span>{{product.reviews.length}} review</span>
+      </div>
+
+      <div class="dimentions">
+        @for (dimension of product.dimensions; track $index) {
+          <p>
+            <i class="fas fa-check"></i>
+            <span>{{dimension}}</span>
+          </p>
+        }
+      </div>
+
+      <div>
+        <p>{{product.price | currency:'USD':'symbol':'1.2-2'}}</p>
+      </div>
+
+      <div>
+        <span>{{product.availabilityStatus}}</span>
+        <span>SKU: {{product.sku}}</span>
+      </div>
+    </div>
+  </div>
+</div>

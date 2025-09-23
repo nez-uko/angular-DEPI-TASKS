@@ -1,0 +1,11 @@
+.card{
+    padding: 20px;
+}
+
+p{
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+     -webkit-box-orient: vertical; 
+     display: -webkit-box; 
+}

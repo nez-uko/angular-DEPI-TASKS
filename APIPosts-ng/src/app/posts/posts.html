@@ -1,0 +1,22 @@
+<div class="container my-5">
+    <input type="text" class="form-control" placeholder="search..." (input)="filterProducts()"
+    [(ngModel)]="this.value" name="search">
+</div>
+
+<div class="container my-5">
+    <div class="row g-3">
+        @for (product of products; track $index) {
+            <div class="col-4 ">
+                <div class="card">
+                 <div>
+                    <img [src]="product.images[0]" alt="" class="w-100">
+                 </div>
+                <h1 style="color: lightblue;">{{product.id}}</h1>
+                <p style="font-family:cursive; font-size: 20px;">{{product.title}}</p>
+                <p class="p">{{product.description}}</p>
+                <button class="btn btn-primary" routerLink="/products/{{product.id}}">See product</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
