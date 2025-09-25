@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class Singlepost {
   product :any ;
+  imgLink :string='';
  constructor(private service: Global , private activatedR : ActivatedRoute){
 
  }
@@ -19,7 +20,14 @@ export class Singlepost {
     next: (res)=>{
       console.log(res);
        this.product=res; 
+       this.imgLink=this.product.thumbnail;
     },
   });
+   
 }
+viewImg(imge :string){
+ this.imgLink=imge;
+}
+
+
 }
