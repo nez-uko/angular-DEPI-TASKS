@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+
+<!-- 
+==>reactive form
+==>template driven form
+ -->
+
+
+ <!--  reactive form -->
+<form [formGroup]="loginForm" (ngSubmit)="handelSubmit()">
+    <input type="text" formControlName="email" placeholder="enter your email" class="form-control my-1 mx-1">
+    @if(is_Submited){
+     @if(FormControls.email.errors?.['required']){
+         <div class="alert alert-danger">Email is required</div>
+     }@else if(FormControls.email.errors?.['email']){
+            <div class="alert alert-danger">invalid email</div>
+     }}
+    <input type="text" formControlName="password" placeholder="enter your password" class="form-control my-1 mx-1">
+    @if(is_Submited){
+     @if(FormControls.password.errors?.['required']){
+         <div class="alert alert-danger">password is required</div>
+     }@else if(FormControls.password.errors?.['minlength']){
+            <div class="alert alert-danger">invalid password</div>
+     }}
+
+     <button class="btn btn-warning my-1 mx-1">login</button>
+</form>
+
+
+<!-- template driven form -->
+
+<form #loginDriven="ngFrom" (ngSubmit)="handelDrive(loginDriven)">
+
+</form>

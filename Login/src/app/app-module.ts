@@ -3,27 +3,33 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
-import { Posts } from './posts/posts';
-import { Navbar } from './navbar/navbar';
-import { provideHttpClient } from '@angular/common/http';
-import { Singlepost } from './singlepost/singlepost';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
+import { Navbar } from './shared/navbar/navbar';
+import { UpdateProfile } from './pages/update-profile/update-profile';
+import { Login } from './pages/login/login';
 import { FormsModule } from '@angular/forms';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     App,
-    Posts,
     Navbar,
-    Singlepost
+    UpdateProfile,
+    Login
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     FormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideHttpClient() //to use HttpClient to call APIS
+    provideHttpClient()
   ],
   bootstrap: [App]
 })

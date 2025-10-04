@@ -1,0 +1,14 @@
+@if(user){
+
+<div class="container mt-4" >
+  <h2>Profile</h2>
+  <form (ngSubmit)="onSave()">
+    <input name="first_name" [(ngModel)]="user.first_name" class="form-control mb-2" required />
+    <input name="last_name" [(ngModel)]="user.last_name" class="form-control mb-2" required />
+    <input name="phone" [(ngModel)]="user.phone" class="form-control mb-2" required />
+    <input name="email" [(ngModel)]="user.email" class="form-control mb-2" required />
+    <button class="btn btn-primary">Save</button>
+  </form>
+</div>
+
+}

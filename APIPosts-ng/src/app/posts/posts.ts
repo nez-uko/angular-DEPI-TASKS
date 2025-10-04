@@ -12,7 +12,6 @@ export class Posts {
   products_2: any =[];
   value='';
  constructor(private service : Global){
-
  }
  ngOnInit(){
   this.service.getProducts().subscribe({
@@ -21,10 +20,10 @@ export class Posts {
        this.products_2=res.products;
     },
     error :(er)=>{
-      console.log(er); 
+      console.log(er);
     },
     complete: ()=>{
-
+      
     }
   })
  }

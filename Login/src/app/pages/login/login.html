@@ -1,0 +1,13 @@
+<!-- src/app/pages/register/register.component.html -->
+<div class="container mt-4">
+  <h2>Register</h2>
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <input name="first_name" [(ngModel)]="form.first_name" required placeholder="First name" class="form-control mb-2" />
+    <input name="last_name" [(ngModel)]="form.last_name" required placeholder="Last name" class="form-control mb-2" />
+    <input name="phone" [(ngModel)]="form.phone" required placeholder="Phone" class="form-control mb-2" />
+    <input name="email" [(ngModel)]="form.email" required placeholder="Email" class="form-control mb-2" />
+    <input name="password" type="password" [(ngModel)]="form.password" required placeholder="Password" class="form-control mb-2" />
+    <input name="confirm_password" type="password" [(ngModel)]="form.confirm_password" required placeholder="Confirm password" class="form-control mb-2" />
+    <button class="btn btn-success" [disabled]="f.invalid">Register</button>
+  </form>
+</div>

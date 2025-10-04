@@ -1,0 +1,14 @@
+<!-- src/app/components/navbar/navbar.component.html -->
+<nav class="navbar navbar-light bg-light px-3">
+  <a class="navbar-brand" routerLink="/">MyApp</a>
+  <div class="ms-auto">
+    <div>
+     @if(user){
+      <span class="me-2">Welcome, {{ user.first_name }}</span> 
+     <button class="btn btn-danger" (click)="logout()">Logout</button>
+     <button class="btn btn-link" (click)="goProfile()">Profile</button>
+     }
+    </div>
+    
+  </div>
+</nav>

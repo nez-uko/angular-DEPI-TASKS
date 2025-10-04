@@ -7,8 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class Global {
    constructor(private http: HttpClient){
+    // console.log(`HTTPS IS`, http); 
   }
   getProducts():Observable<any>{
+    //return obsarvable  
+    // console.log(this.http.get("https://dummyjson.com/products"));
+    
     return this.http.get("https://dummyjson.com/products");
   }
   getSingleProduct(id : any){
