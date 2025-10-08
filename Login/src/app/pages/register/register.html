@@ -1,0 +1,36 @@
+
+<!-- register -->
+
+<div class="container mt-4">
+  <h1>Register</h1>
+  
+
+  <form (ngSubmit)="handelSubmit(registerForm)"  #registerForm="ngForm">
+    <input class="col-10 my-1 form-control " #firstName="ngModel" type="text" placeholder="enter your first name" [(ngModel)]="global.model.first_name"  name="first_name" required>
+    @if(registerForm.submitted && firstName.invalid){
+     <p>This felid is required</p>
+    }
+    
+    <input class="col-10 my-1 form-control" #lastName="ngModel" type="text" placeholder="enter your second name" [(ngModel)]="global.model.last_name" name="last_name" required>
+    @if(registerForm.submitted && lastName.invalid){
+     <p>This felid is required</p>
+    }
+    <input class="col-10 my-1 form-control"  #email="ngModel" type="email" placeholder="enter your email" [(ngModel)]="global.model.email" name="email" required>
+      @if(registerForm.submitted && email.invalid){
+     <p>This felid is required</p>
+    }
+    <input class="col-10 my-1 form-control" #phone="ngModel" placeholder="enter your phone number" [(ngModel)]="global.model.phone" name="phone" required>
+    @if(registerForm.submitted && phone.invalid){
+     <p>This felid is required</p>
+    }
+    <input  class="col-10 my-1 form-control" #passord="ngModel" type="password" placeholder="enter your password" [(ngModel)]="global.model.password" name="password" required>
+    @if(registerForm.submitted && passord.invalid){
+     <p>This felid is required</p>
+    }
+    <input class="col-10 my-1 form-control" #confirmPassword="ngModel" type="password" placeholder="confirm password" [(ngModel)]="global.model.confirm_password" name="confirm_password" required>
+    @if(confirmPassword.dirty && passord.value!=confirmPassword.value){
+      <p>Not match password</p>
+    }
+     <button type="submit" class="btn btn-primary">register</button>
+  </form>
+</div>

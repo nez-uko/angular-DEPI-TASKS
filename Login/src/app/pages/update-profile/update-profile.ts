@@ -9,7 +9,12 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './update-profile.css'
 })
 export class UpdateProfile {
- user: any = null;
+
+}
+
+
+/**
+ *  user: any = null;
 
   constructor(private global: Global, private toastr: ToastrService) {}
 
@@ -29,4 +34,4 @@ export class UpdateProfile {
       }
     });
   }
-}
+ */

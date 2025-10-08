@@ -1,14 +1,31 @@
-<!-- src/app/components/navbar/navbar.component.html -->
-<nav class="navbar navbar-light bg-light px-3">
-  <a class="navbar-brand" routerLink="/">MyApp</a>
+ <nav class="navbar navbar-light bg-light px-3 justify-content-between">
+  <a class="navbar-brand" routerLink="/">LOGIN&REGISTER</a>
   <div class="ms-auto">
     <div>
-     @if(user){
-      <span class="me-2">Welcome, {{ user.first_name }}</span> 
-     <button class="btn btn-danger" (click)="logout()">Logout</button>
-     <button class="btn btn-link" (click)="goProfile()">Profile</button>
-     }
+     <!-- <span class="me-2">Welcome</span> 
+     <button class="btn btn-danger">Logout</button>
+     <button class="btn btn-link">Profile</button> -->
+      
+      
+
+      @if(global.check){
+      <div class="d-flex">
+        <div class="hello-user mx-3">
+        <p>welcome, {{global.model.first_name}}</p>
+      </div> 
+      <div>
+        <button class="btn btn-danger" (click)="global.logOut()">LOgOut</button>
+      </div>
+      </div>
+      }@else{
+       <ul class="navbar-nav">
+        <li class="nav-item">
+         <a routerLink="/register" class="nav-link">register</a>
+         </li>
+       </ul>
+      }      
     </div>
-    
   </div>
 </nav>
+
+

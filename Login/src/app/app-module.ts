@@ -8,16 +8,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { Navbar } from './shared/navbar/navbar';
 import { UpdateProfile } from './pages/update-profile/update-profile';
-import { Login } from './pages/login/login';
 import { FormsModule } from '@angular/forms';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { ActLogin } from './pages/act-login/act-login';
+import { Register } from './pages/register/register';
+import { authInterceptor } from './services/auth-interceptor';
 
 @NgModule({
   declarations: [
     App,
     Navbar,
     UpdateProfile,
-    Login
+    ActLogin,
+    Register
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ import { provideHttpClient } from '@angular/common/http';
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideHttpClient()
+    provideHttpClient(withInterceptors([authInterceptor]))
   ],
   bootstrap: [App]
 })
