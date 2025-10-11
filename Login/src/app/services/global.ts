@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -9,31 +10,35 @@ export class Global {
   private apiUrl = 'https://full.faedg.com/public/api/client';
 
   check= localStorage.getItem('token')? true:false;
-   user: any = null;
-
+ 
     model={
-      first_name:'',
-      last_name:'',
       email:'',
-      phone:'',
       password:'',
-      confirm_password:''
     }
+    userData:any=null;
 
-  constructor(private http:HttpClient){
+  constructor(private http:HttpClient, private router :Router){
 
   }
-  
+  login(body:any):Observable<any>{
+     return this.http.post(`${this.apiUrl}/customer_login`, body)
+  }
   register(body :any):Observable<any>{
     return this.http.post(`${this.apiUrl}/customer_register` , body);
   }
   logOut(){
     localStorage.removeItem('token');
     this.check=false;
+    this.router.navigateByUrl('/actLogin');
   }
 
   profile():Observable<any>{
     return this.http.get(`${this.apiUrl}/profile`);
+  }
+  loadProfile(){
+    this.profile().subscribe({
+      next:(res)=> this.userData=res.data
+    });
   }
 }
 

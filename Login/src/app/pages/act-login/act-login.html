@@ -1,20 +1,11 @@
 
 
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="container mt-4">
+<div class="container mt-4">
   <h2>Login</h2>
-  <form (ngSubmit)="onSubmit()" #f="ngForm">
+  <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
   <input name="email" [(ngModel)]="form.email" required placeholder="Email" class="form-control mb-2" />
     <input name="password" type="password" [(ngModel)]="form.password" required placeholder="Password" class="form-control mb-2" />
-   <button class="btn btn-success" [disabled]="f.invalid">Login</button>
+     <p [ngClass]="loginMsg?'alert alert-danger':''" [innerHTML]="loginMsg"></p>
+    <button class="btn btn-success">Login</button>
   </form>
-</div> -->
+</div>

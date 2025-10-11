@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Global } from '../../services/global';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-profile',
@@ -9,7 +10,16 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './update-profile.css'
 })
 export class UpdateProfile {
+ constructor(private router : Router , public global :Global , private toastr : ToastrService){
+  
+ }
+ ngOnInit(){
+      this.global.loadProfile();
+ }
+ 
+ onSave(){
 
+ }
 }
 
 

@@ -35,22 +35,3 @@ export class Register {
   }
 }
 
-
-/**
- *  form: any = {};
-
-  constructor(private global: Global, private toastr: ToastrService, private router: Router) {}
-
-  onSubmit() {
-    this.global.register(this.form).subscribe({
-      next: (res: any) => {
-        this.toastr.success(res.message || 'Registered successfully');
-        this.router.navigateByUrl('/login');
-      },
-      error: (err) => {
-        console.error('register error', err);
-        this.toastr.error(err.error?.message || 'Registration failed');
-      }
-    });
-  }
- */
