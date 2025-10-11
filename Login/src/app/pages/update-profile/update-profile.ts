@@ -17,31 +17,24 @@ export class UpdateProfile {
       this.global.loadProfile();
  }
  
- onSave(){
+update() {
+    const body = {
+      first_name: this.global.userData.customer_first_name,
+      last_name: this.global.userData.customer_last_name,
+      phone: this.global.userData.customer_phone,
+      email: this.global.userData.customer_email
+    };
 
- }
-}
-
-
-/**
- *  user: any = null;
-
-  constructor(private global: Global, private toastr: ToastrService) {}
-
-  ngOnInit() {
-    this.user = this.global.getUser();
-  }
-
-  onSave() {
-    this.global.updateProfile(this.user).subscribe({
-      next: (res: any) => {
-        this.global.saveUser(res.data);
-        this.toastr.success(res.message || 'Profile updated!');
+    this.global.UpdateProfile(body).subscribe({
+      next: (res) => {
+        this.toastr.success('Profile updated successfully ');
+        this.global.loadProfile();
       },
       error: (err) => {
-        console.error('update error', err);
-        this.toastr.error(err.error?.message || 'Update failed');
+        console.log(err);
+        this.toastr.error('Failed to update profile');
       }
     });
   }
- */
+}
+

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, retry } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +31,9 @@ export class Global {
     this.check=false;
     this.router.navigateByUrl('/actLogin');
   }
-
+   UpdateProfile(body :any):Observable<any>{
+     return this.http.put(`${this.apiUrl}/profile/${this.userData.id}`, body)
+   }
   profile():Observable<any>{
     return this.http.get(`${this.apiUrl}/profile`);
   }
@@ -43,43 +45,3 @@ export class Global {
 }
 
 
-
-
-/**
- *  private apiUrl = 'https://full.faedg.com/public/api/client';
-  currentUser: any = null;
-
-  constructor(private http: HttpClient) {
-    const savedUser = localStorage.getItem('user');
-    if (savedUser) this.currentUser = JSON.parse(savedUser);
-  }
-
-  register(data: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/customer_register`, data);
-  }
-
-  login (data :any){
-    return this.http.post(`${this.apiUrl}/customer_login`, data);
-  }
-
-  updateProfile(data: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/update_profile`, data);
-  }
-
-  saveUser(user: any) {
-    this.currentUser = user;
-    localStorage.setItem('user', JSON.stringify(user));
-  }
-
-  getUser() {
-    if (this.currentUser) return this.currentUser;
-    const use = localStorage.getItem('user');
-    return use ? JSON.parse(use) : null;
-  }
-
-  logout() {
-    this.currentUser = null;
-    localStorage.removeItem('user');
-  }
-}
- */
